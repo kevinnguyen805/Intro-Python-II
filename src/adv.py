@@ -52,19 +52,84 @@ room['treasure'].s_to = room['narrow']
 # If the user enters "q", quit the game.
 
 player = Player('Conrad', room['outside'])
-movement = ""
+print(f'Hello {player.name}! You are currently located at {player.current_room.location}')
+
+# INITIATE REPL (read, evaluate, print, loop)
+# while True:
+    
+#     movement = input(" \n Please input n, s, e, or w to move or press q to quit ~~> ")
+
+#     if(movement == "n"):
+#         if (player.current_room.n_to != None):
+#             player.current_room = player.current_room.n_to
+#             print(f'\n {player.name} is in the {player.current_room.location}. {player.current_room.description} \n')
+#         elif(player.current_room.m_to == None):
+#             print("\n There is no room in that direction \n")
+    
+#     if(movement == 's'):
+#         if(player.current_room.s_to != None):
+#             player.current_room = player.current_room.s_to
+#             print(f'\n {player.name} is in the {player.current_room.location}. {player.current_room.description} \n')
+#         elif(player.current_room.s_to == None):
+#             print("\n There is no room in that direction \n")
+
+#     if(movement == 'e'):
+#         if(player.current_room.e_to != None):
+#             player.current_room = player.current_room.e_to
+#             print(f'\n {player.name} is in the {player.current_room.location}. {player.current_room.description} \n') 
+#         elif(player.current_room.e_to == None):
+#             print("\n There is no room in that direction \n")
+    
+#     if(movement == 'w'):
+#         if(player.current_room.w_to != None):
+#             player.current_room = player.current_room.w_to
+#             print(f'\n {player.name} is in the {player.current_room.location}. {player.current_room.description} \n')
+#         elif(player.current_room.w_to == None):
+#             print("\n There is no room in that direction \n")
+
+#     if (movement == "q"):
+#         print("good bye")
+#         exit()
+
+#     else:
+#         print("Please press n, s, e, or w to continue playing. Press q to quit.")
+
 
 while True:
     
-    movement = input(" Please input n, s, e, or w to move or press q to quit ~~> ")
+    movement = input(" \n Please input n, s, e, or w to move or press q to quit ~~> ")
 
     if(movement == "n"):
-        if (player.current_room.n_to != None):
+        if (player.current_room.n_to is not None):
             player.current_room = player.current_room.n_to
-            print(f'{player.name} is in {player.current_room.location}. {player.current_room.description}')
-        else:
-            print("There is no room in that direction")
+            print(f'\n {player.name} is in the {player.current_room.location}. {player.current_room.description} \n')
+        elif(player.current_room.m_to is None):
+            print("\n There is no room in that direction \n")
     
-    elif (movement == "q"):
+    if(movement == 's'):
+        if(player.current_room.s_to is not None):
+            player.current_room = player.current_room.s_to
+            print(f'\n {player.name} is in the {player.current_room.location}. {player.current_room.description} \n')
+        elif(player.current_room.s_to is None):
+            print("\n There is no room in that direction \n")
+
+    if(movement == 'e'):
+        if(player.current_room.e_to is not None):
+            player.current_room = player.current_room.e_to
+            print(f'\n {player.name} is in the {player.current_room.location}. {player.current_room.description} \n') 
+        elif(player.current_room.e_to is None):
+            print("\n There is no room in that direction \n")
+    
+    if(movement == 'w'):
+        if(player.current_room.w_to is not None):
+            player.current_room = player.current_room.w_to
+            print(f'\n {player.name} is in the {player.current_room.location}. {player.current_room.description} \n')
+        elif(player.current_room.w_to is None):
+            print("\n There is no room in that direction \n")
+
+    if (movement == "q"):
         print("good bye")
         exit()
+
+    else:
+        print("Please press n, s, e, or w to continue playing. Press q to quit.")
