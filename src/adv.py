@@ -73,12 +73,20 @@ while True:
     if(len(movement.split())) > 1:
         print(movement.split())            # returns a list of each string input
         # if length of list is greater than 1 - that means it is a verb command
-        if (movement.split()[0] == 'take'):
+        if (movement.split()[0] == 'take' or movement.split()[0] == 'get'):
             action = movement.split()[1:]         #grabbing the item we want  - where are we grabbing the item?
             print(" ".join(action))                # "space between each word".join(method)
             player.take_item(" ".join(action))     # we have to grab 1: because talking hat is two words
 
+        if(movement.split()[0] == 'drop'):
+            action = movement.split()[1:]
+            print(" ".join(action))
+            player.drop_item(" ".join(action))
         # if length of list is 1 - that is a directional command 
+    elif(movement == "i" or movement == 'inventory'):
+        for item in player.items_in_inventory:
+            print(f'In your inventory, you have a {item.item}')
+
     elif(movement == "n"):
         if (player.current_room.n_to is not None):
             player.current_room = player.current_room.n_to

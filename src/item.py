@@ -3,7 +3,11 @@ class Item:
           self.item = item
           self.item_description = item_description
 
+     def on_take(self):
+          print(f'You have picked up {self.item}')
+     
+     def on_drop(self):
+          print(f'You have dropped {self.item}')
 
-""" The Room class should be extended with a list that holds the Items that are currently in that room.
 
-Add functionality to the main loop that prints out all the items that are visible to the player when they are in that room.""" 
+          # .on_take() is a method on each item object
